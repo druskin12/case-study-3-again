@@ -26,6 +26,12 @@ ylabel('Voltage (V)');
 legend('Vc', 'Vin');
 title('Voltage across Capacitor (h = 1x10^-5)');
 
+figure;
+plot(h.*(1:k+1), v(2,:)/R);
+xlabel('Time (s)');
+ylabel('Current (A)');
+title('Current across Capacitor (h = 1x10^-5)');
+
 different_h = [1, 1e-1, 1e-2, 1e-3, 1e-4, 1e-5, 1e-6, 1e-7];
 for i = 1:8
     h = different_h(i);

@@ -29,3 +29,9 @@ xlabel('Time (s)');
 ylabel('Voltage (V)');
 legend('vL', 'Vin');
 title('Voltage across Inductor (h = 1x10^-7)');
+
+figure;
+plot(h.*(1:k+1), i(1, :));
+xlabel('Time (s)');
+ylabel('Current (A)');
+title('Current across Inductor (h = 1x10^-7)');
