@@ -4,12 +4,13 @@ close all;
 
 R = 100;
 L = 0.1;
-h = 1e-6;
+h = 1e-7;
+R = 1e3;
 vR0 = 0;
 
 
-Vin = ones(1, 5000);
-i = zeros(1, 5000);
+Vin = ones(1, 4000);
+i = zeros(1, 4000);
 i(:, 1) = vR0/R;
 
 
@@ -28,4 +29,4 @@ hold off;
 xlabel('Time (s)');
 ylabel('Voltage (V)');
 legend('vL', 'Vin');
-title('Voltage across Inductor (h = 1x10^-7)');
+title('Voltage across Inductor (h = 1x10^-7');

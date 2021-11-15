@@ -24,7 +24,7 @@ xlabel('Time (s)');
 xlim([0,5e-3]);
 ylabel('Voltage (V)');
 legend('Vc', 'Vin');
-title('Voltage across Capacitor (h = 1x10^-5');
+title('Voltage across Capacitor (h = 1x10^-5)');
 
 different_h = [1, 1e-1, 1e-2, 1e-3, 1e-4, 1e-5, 1e-6, 1e-7];
 for i = 1:8
