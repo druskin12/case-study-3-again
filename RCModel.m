@@ -1,7 +1,6 @@
 clc;
 clearvars;
 close all;
-
 h = 1e-05;
 R = 1e3;
 C = 1e-6;
