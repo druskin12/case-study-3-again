@@ -24,7 +24,7 @@ figure;
 hold on;
 plot(h.*(1:k+1), vR(1, :));
 plot(h.*(1:k+1), Vin(1, :));
-hold off;
+hold off; 
 xlabel('Time (s)');
 ylabel('Voltage (V)');
 legend('vL', 'Vin');
