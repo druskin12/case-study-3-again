@@ -3,9 +3,10 @@ clearvars;
 close all;
 
 
-R = 100;
-L = 0.1;
+R = 50;
+L = 0.035;
 C = 1e-6;
+
 h = 1/192000;
 vC0 = 0;
 i0 = 0;
@@ -20,12 +21,38 @@ for k = 1:2999
 end
 
 vR = Vc_i(2, :)*R;
+soundsc(vR, 100);
 figure;
 hold on;
+plot(h.*(1:k+1), vR(1, :));
+plot(h.*(1:k+1), Vin(1, :));
+
+R = 100;
+L = 0.5;
+C = 2e-8;
+
+for k = 1:2999
+    Vc_i(:, k+1) = [1 h/C; -h/L (1 - R*h/L)]*Vc_i(:, k) + [0; h/L]*Vin(:, k);
+end
+
+vR = Vc_i(2, :)*R;
+
+plot(h.*(1:k+1), vR(1, :));
+plot(h.*(1:k+1), Vin(1, :));
+
+R = 100;
+L = 0.5;
+C = 5e-8;
+
+for k = 1:2999
+    Vc_i(:, k+1) = [1 h/C; -h/L (1 - R*h/L)]*Vc_i(:, k) + [0; h/L]*Vin(:, k);
+end
+
+vR = Vc_i(2, :)*R;
+
 plot(h.*(1:k+1), vR(1, :));
 plot(h.*(1:k+1), Vin(1, :));
 hold off;
 xlabel('Time (s)');
 ylabel('Voltage (V)');
-legend('vL', 'Vin');
-title('Voltage across Inductor (h = 1x10^-7)');
+title('Voltage across Resistor (h = 1/192000)');
