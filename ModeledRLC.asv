@@ -69,12 +69,12 @@ title('Voltage across Resistor (h = 1/192000)');
 R = 100;
 L = 100e-3;
 C = .1e-6;
-transferFunction = zeros(1, 10000);
-Vin = zeros(1, 10000);
-Vc_i = zeros(2, 10000);
+transferFunction = zeros(1, 5000);
+Vin = zeros(1, 5000);
+Vc_i = zeros(2, 5000);
 Vc_i(:, 1) = [vC0, 0];
-for f = 1:10000
-    for k = 1:9999
+for f = 10:10000
+    for k = 1:4999
         Vin(1, k) = sin(2*pi*f*k*h);
         Vc_i(:, k+1) = [1 h/C; -h/L (1 - R*h/L)]*Vc_i(:, k) + [0; h/L]*Vin(:, k);
     end
@@ -92,20 +92,22 @@ ylabel('V');
 freq = [10, 100, 1000, 1597, 10000];
 for i = 1:5
     f = freq(i);
-    Vc_i = zeros(2, 1000000);
+    Vc_i = zeros(2, 5000);
     Vc_i(:, 1) = [vC0, 0];
-    Vin = zeros(1, 1000000);
-    for k = 1:999999
+    Vin = zeros(1, 5000);
+    for k = 1:4999
         Vin(1, k) = sin(2*pi*f*k*h);
         Vc_i(:, k+1) = [1 h/C; -h/L (1 - R*h/L)]*Vc_i(:, k) + [0; h/L]*Vin(:, k);
     end
     vR = Vc_i(2, :)*R;
+    playSound(vR, 1/h);
+    pause(3);
     figure;
     hold on;
     plot(h.*(1:k+1), vR(1, :));
     plot(h.*(1:k+1), Vin(1, :));
     hold off;
-    xlim([0, 0.015]);
+    xlim([0, 0.030]);
     legend('vR', 'Vin');
     xlabel('Time (s)');
     ylabel('Voltage (V)');
