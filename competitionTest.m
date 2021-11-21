@@ -51,6 +51,6 @@ plotPowerSpectrum(VsoundFiltered,Fs);
 
 % play original sound
 playSound(Vsound,Fs);
-
+pause(1);
 % play sound after circuit filter
 playSound(VsoundFiltered,Fs);
