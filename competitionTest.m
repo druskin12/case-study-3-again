@@ -30,7 +30,7 @@ plotPowerSpectrum(VsoundFiltered,Fs);
 
 % play original sound
 playSound(Vsound,Fs);
-
+pause(3);
 % play sound after circuit filter
 playSound(VsoundFiltered,Fs);
 

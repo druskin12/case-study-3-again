@@ -3,7 +3,7 @@
 %
 % *Name: FILL IN HERE*
 %
-% function myResonatorCircuit(Vin,h) receives a time-series voltage sequence
+% function mySensorCircuit(Vin,h) receives a time-series voltage sequence
 % sampled with interval h, and returns the output voltage sequence produced
 % by a circuit
 %
@@ -15,10 +15,10 @@
 % outputs:
 % Vout - time-series vector representing the output voltage of a circuit
 
-function Vout = myResonatorCircuit(Vin,h)
-R = 50;
-L = 131.5e-2;
-C = .1e-6;
+function Vout = mySensorCircuit(Vin,h)
+R = 100;
+L = 50;
+C = .080e-6;
 transferFunction = zeros(1, 9991);
 
 vC0 = 0;
