@@ -1,7 +1,7 @@
 %% Case study 3: Circuits as Resonators, Sensors, and Filters
 % *ESE 105*
 %
-% *Name: William Yin*
+% *Name: Daniel Ruskin, Emma Bateman, William Yin*
 %
 % function myFilterCircuit(Vin,h) receives a time-series voltage sequence
 % sampled with interval h, and returns the output voltage sequence produced

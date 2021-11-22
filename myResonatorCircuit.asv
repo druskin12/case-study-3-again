@@ -16,7 +16,7 @@
 % Vout - time-series vector representing the output voltage of a circuit
 
 function Vout = myResonatorCircuit(Vin,h)
-R = 15.915; % can try to increase to less than 15.92
+R = 15.915; 
 L = 100e-3;
 C = .3275e-6;
 % Vin1 = zeros(1, length(Vin));

@@ -5,7 +5,7 @@ close all;
 %% Part 3.1 RLC Model 
 
 % initial parameters
-R = 50;
+R = 20;
 L = 0.035;
 C = 1e-6;
 

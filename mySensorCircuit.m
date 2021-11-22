@@ -1,7 +1,7 @@
 %% Case study 3: Circuits as Resonators, Sensors, and Filters
 % *ESE 105* 
 %
-% *Name: FILL IN HERE*
+% *Name: Daniel Ruskin, Emma Bateman, William Yin*
 %
 % function mySensorCircuit(Vin,h) receives a time-series voltage sequence
 % sampled with interval h, and returns the output voltage sequence produced
@@ -16,9 +16,10 @@
 % Vout - time-series vector representing the output voltage of a circuit
 
 function Vout = mySensorCircuit(Vin,h)
-R = 100;
-L = 40.6;
-C = .1e-6;
+R = 10;
+L = 100e-3;
+C = .5e-4;
+Vin1 = zeros(1, length(Vin));
 transferFunction = zeros(1, 9991);
 
 vC0 = 0;
@@ -28,12 +29,12 @@ Vc_i(:, 1) = [vC0, 0];
 
 for f = 1:9991
    for k = 1:4999
-       Vin(k, 1) = sin(2*pi*(f + 9)*k*h);
-       Vc_i(:, k+1) = [1 h/C; -h/L (1 - R*h/L)]*Vc_i(:, k) + [0; h/L]*Vin(k, :);
+       Vin1(1, k) = sin(2*pi*(f + 9)*k*h);
+       Vc_i(:, k+1) = [1 h/C; -h/L (1 - R*h/L)]*Vc_i(:, k) + [0; h/L]*Vin1(:, k);
     end
     Vout = Vc_i(2, :)*R;
-    transferFunction(1, f) = (norm(Vout))/(norm(Vin));
- end
+    transferFunction(1, f) = (norm(Vout))/(norm(Vin1));
+end
  
 figure;
 plot(10:10000, transferFunction(1, :));

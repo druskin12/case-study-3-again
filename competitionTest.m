@@ -1,7 +1,7 @@
 %% Case study 3: Circuits as Resonators, Sensors, and Filters
 % *ESE 105* 
 %
-% *Name: FILL IN HERE*
+% *Name: Daniel Ruskin, Emma Bateman, William Yin*
 
 clear;
 close all;
@@ -9,14 +9,21 @@ close all;
 Fs = 192000;   % Sampling frequency, Hz
 
 %% Task 1: Tuning fork
-Vpulse = zeros(length(0:(1/Fs):5),1);     % 5-second duration
+clear;
+close all;                                        
+Vin = zeros(1, 5000);
+Fs = 192000;   % Sampling frequency, Hz
+Vpulse = zeros (length(0:(1/Fs):5),1);     % 5-second duration
 Vpulse(2) = 1;
 
 Vringing = myResonatorCircuit(Vpulse,1/Fs);
 soundsc(Vringing,Fs);
 
 %% Task 2: Audio sensor
+clear;
+close all;
 
+Fs = 192000;   % Sampling frequency, Hz
 load('MarsHelicopter_noisy.mat');
 % set sampling interval to match sampling rate of the audio signal
 h = 1/Fs;
