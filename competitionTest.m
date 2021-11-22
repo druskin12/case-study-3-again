@@ -30,12 +30,15 @@ plotPowerSpectrum(VsoundFiltered,Fs);
 
 % play original sound
 playSound(Vsound,Fs);
-pause(3);
+pause(1);
 % play sound after circuit filter
 playSound(VsoundFiltered,Fs);
 
 %% Task 3: Music filter
+clear;
+close all;
 
+Fs = 192000;   % Sampling frequency, Hz
 % load('handel.mat');
 load('noisyhandel.mat');
 
