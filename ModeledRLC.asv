@@ -99,9 +99,9 @@ end
 figure;
 plot(10:10000, transferFunction(1, :));
 xlabel('Frequency (Hz)');
-ylabel('Vout / Vin');
-title('Transfer Function across Different Frequencies');
-% Explore five specific frequencies over a given time
+ylabel('Vout/Vin');
+
+% Explore Five Specific Frequencies
 % 5 frequencies below
 freq = [10, 100, 1000, 1592, 10000];
 for i = 1:5
@@ -121,8 +121,8 @@ for i = 1:5
     % plot frequency's voltage across resistor over time
     figure;
     hold on;
-    plot(h.*(1:k+1), vR(1, :)); % voltage across resistor
-    plot(h.*(1:k+1), Vin(1, :)); % input voltage
+    plot(h.*(1:k+1), vR(1, :));
+    plot(h.*(1:k+1), Vin(1, :));
     hold off;
     xlim([0, 0.030]);
     legend('vR', 'Vin');
