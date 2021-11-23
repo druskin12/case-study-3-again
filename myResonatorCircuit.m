@@ -43,19 +43,18 @@ C = .3275e-6;
 
 vC0 = 0;
 
-Vc_i = zeros(2, 1e8);
+Vc_i = zeros(2, length(Vin));
 Vc_i(:, 1) = [vC0, 0];
-Vin2 = zeros(1e8, 1);
-Vin2(2, 1) = 1;
-for k = 1:(1e8 - 1)
-    Vc_i(:, k+1) = [1 h/C; -h/L (1 - R*h/L)]*Vc_i(:, k) + [0; h/L]*Vin2(k, :);
+
+for k = 1:(length(Vin) - 1)
+    Vc_i(:, k+1) = [1 h/C; -h/L (1 - R*h/L)]*Vc_i(:, k) + [0; h/L]*Vin(k, :);
 end
 Vout = Vc_i(2, :)*R;
 
 figure;
 hold on;
 plot(h.*(1:k+1), Vout(1, :));
-plot(h.*(1:k+1), Vin2(:, 1));
+plot(h.*(1:k+1), Vin(:, 1));
 hold off;
 legend('vR', 'Vin');
 xlabel('Time (s)');

@@ -1,7 +1,7 @@
 %% Case study 3: Circuits as Resonators, Sensors, and Filters
 % *ESE 105* 
 %
-% *Name: Daniel Ruskin, Emma Bateman, William Yin*
+% *Name: Daniel Ruskin, Emma Bateman, William Y2in*
 
 clear;
 close all;

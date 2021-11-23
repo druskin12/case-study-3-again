@@ -5,7 +5,7 @@ close all;
 %% Part 3.1 RLC Model 
 
 % initial parameters
-R = 20;
+R = 50;
 L = 0.035;
 C = 1e-6;
 
@@ -31,8 +31,8 @@ pause(3);
 % plot voltage of resistor across time
 figure;
 hold on;
-plot(h.*(1:k+1), vR(1, :));
 plot(h.*(1:k+1), Vin(1, :));
+plot(h.*(1:k+1), vR(1, :));
 xlim([0, 0.015]);
 
 % increase R and L
@@ -51,7 +51,6 @@ vR = Vc_i(2, :)*R;
 soundsc(vR, 1/h);
 pause(3);
 plot(h.*(1:k+1), vR(1, :));
-plot(h.*(1:k+1), Vin(1, :));
 xlim([0, 0.015]);
 
 % increase C
@@ -68,12 +67,11 @@ end
 vR = Vc_i(2, :)*R;
 soundsc(vR, 1/h);
 plot(h.*(1:k+1), vR(1, :));
-plot(h.*(1:k+1), Vin(1, :));
 hold off;
 xlim([0, 0.015]);
 xlabel('Time (s)');
 ylabel('Voltage (V)');
-legend ('R = 50,L = 0.035,C = 1e-6','R = 100,L = 0.5,C = 2e-8','R = 100,L = 0.5,C = 5e-8');
+legend ('Vin = 1', 'R = 50,L = 0.035,C = 1e-6','R = 100,L = 0.5,C = 2e-8','R = 100,L = 0.5,C = 5e-8');
 title('Voltage across Resistor (h = 1/192000)');
 
 %% Part 3.3 Send Sinusoidal Voltages to Circuit and Test Different Frequencies
